@@ -1,0 +1,62 @@
+@startuml ClassDiagram
+namespace User{
+    interface User{
+        ..search..
+        search():Array<String>
+        show_popularSearch():Array<String>
+    }
+
+    interface registeredAC{
+        name:String
+        password:String
+        login(name , password):Boolean
+    }
+
+    interface Admin{}
+
+    class SysAdmin implements registeredAC,Admin{
+        send_Survey():Boolean
+        recv_Survey():Array<int>
+    }
+
+    class CategoryAdmin implements registeredAC,Admin{
+        manageArticle():Array<int>
+        topUp_Article():Boolean
+        hide_Article():Boolean
+    }
+
+    class LoginUser implements registeredAC,User{
+        ..subscribeList..
+        fetch_subscribeList():Array<String>
+        subscribe_Theme():Boolean
+        cancel_subscribe():Boolean
+        ..notification..
+        fetch_notification():Array<String>
+        dismiss_notification():Array<String>
+        ..search..
+        search():Array<String>
+        show_popularSearch():Array<String>
+        show_searchHistory():Array<String>
+        ..view_History..
+        view_History():Array<String>
+        ..post_Article..
+        post_Article(String):Boolean
+        ..reportArticle..
+        reportArticle(int):Boolean
+        ..respondArticle..
+        postComment(int):Boolean
+        giveReaction(type):Boolean
+    }
+}
+namespace WebServer{
+    Class Web{
+        -index:html
+        -
+        refreshPage():html
+    }
+}
+
+namespace DBConnection{
+    class SQL{}
+}
+@enduml
