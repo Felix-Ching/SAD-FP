@@ -2,8 +2,8 @@
 System Analysis &amp; Development - Final Project
 
 
-Install dependicies
+Install dependicies:
 pip install -r requirements.txt
 
-Update dependicies list
+Update dependicies list:
 pip freeze > requirements.txt
